@@ -28,8 +28,8 @@ namespace Pairs
             {
                 Console.WriteLine("Pair found: " + pair[0] + ", " + pair[1]);
             }
-            var a = pairs.ToArray();
-            return pairs.ToArray().Count();
+
+            return pairs.Count();
         }
     }
 }
