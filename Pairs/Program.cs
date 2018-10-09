@@ -68,6 +68,8 @@ namespace Pairs
             if (arr.Max() - arr.Min() < k)
             {
                 Console.WriteLine("No pair found! ");
+                Console.ReadKey();
+                return -1;
             }
             var numbers = arr.Select((value) => new { value });
             var pairs = from num1 in numbers
