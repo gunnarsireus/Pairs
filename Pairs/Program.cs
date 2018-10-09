@@ -39,7 +39,7 @@ namespace Pairs
                 }
             }
 
-            Console.WriteLine("Number of Pairs: " + CountNumberOfPairsWithDiff(intArr.Length, 2, intArr));
+            Console.WriteLine("Number of Pairs: " + CountNumberOfPairsWithDiff(intArr.Length, k, intArr));
             Console.ReadKey();
         }
 
