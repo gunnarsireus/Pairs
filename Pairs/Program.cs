@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Pairs
@@ -10,7 +9,7 @@ namespace Pairs
         {
             string input;
             Console.Write("Input n and k: ");
-            input =  Console.ReadLine();
+            input = Console.ReadLine();
             var inputArr = input.Split(" ");
             int n;
             if (!int.TryParse(inputArr[0], out n))
@@ -29,7 +28,7 @@ namespace Pairs
             Console.Write("Input array: ");
             input = Console.ReadLine();
             var arr = input.Split(" ");
-            int[] intArr= new int[arr.Length];
+            int[] intArr = new int[arr.Length];
             for (int i = 0; i < arr.Length; i++)
             {
                 if (!int.TryParse(arr[i], out intArr[i]))
@@ -40,7 +39,7 @@ namespace Pairs
                 }
             }
 
-            Console.WriteLine("Number of Pairs: " + CountNumberOfPairsWithDiff(n, k, intArr));
+            Console.WriteLine("Number of Pairs: " + CountNumberOfPairsWithDiff(intArr.Length, 2, intArr));
             Console.ReadKey();
         }
 
@@ -65,22 +64,20 @@ namespace Pairs
                 Console.ReadKey();
                 return -1;
             }
-            var diff = arr.Max() - arr.Min();
+
             if (arr.Max() - arr.Min() < k)
             {
                 Console.WriteLine("No pair found! ");
             }
-            var numbers = arr.OrderBy(o => o).Select((value) => new { value });
-
+            var numbers = arr.Select((value) => new { value });
             var pairs = from num1 in numbers
-                        from num2 in numbers
-                        where num1.value - num2.value == k
+                        join num2 in numbers
+                        on num1.value - k equals num2.value
                         select new[]
                     {
-            num1.value, // first number in the pair
-            num2.value, // second number in the pair
-        };
-
+                        num1.value, // first number in the pair
+                        num2.value, // second number in the pair
+                    };
             foreach (var pair in pairs)
             {
                 Console.WriteLine("Pair found: " + pair[0] + ", " + pair[1]);

@@ -7,8 +7,13 @@ namespace XUnitTestPairs
         [Fact]
         public void Test1()
         {
-            var p = Pairs.Program.CountNumberOfPairsWithDiff(5, 2, new int[] { 1, 5, 3, 4, 2 });
-            Assert.Equal(3, p);
+            int[] intArr = new int[100000];
+            for (int i = 0; i < 100000; i++)
+            {
+                intArr[i] = 1 + i*3;
+            }
+            var p = Pairs.Program.CountNumberOfPairsWithDiff(intArr.Length, 3, intArr);
+            Assert.Equal(99999, p);
         }
     }
 }
