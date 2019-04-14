@@ -8,7 +8,7 @@ namespace Pairs
         static void Main(string[] args)
         {
             string input;
-            Console.Write("Input n and k: ");
+            Console.Write("Input number of numbers 'n' and difference 'k': ");
             input = Console.ReadLine();
             var inputArr = input.Split(" ");
             int n;
